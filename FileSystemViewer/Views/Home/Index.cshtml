@@ -1,0 +1,40 @@
+﻿<style>
+    table, th{
+        background-color:lightgrey;
+        color: white;
+    }
+
+    table, th, td{
+        border-color: lightgrey;
+        padding:20px;
+        border: 2px solid lightgrey;
+    }
+        table, td{
+            background-color:white;
+            color: black;
+    }
+</style>
+
+<div class="well" style="margin-top:30px;" ng-app="App" ng-controller="AppController">
+
+    <input id="path" ng-model="Path" class="form-inline" type="text" placeholder="Please, input path" />
+    <input type="button" class="btn btn-default" value="Display" ng-click="makeRuquest(Path)" />
+    <hr />
+    <p>Current path: {{Path}}</p>
+    <h4>Files</h4>
+    <table>
+        <tr>
+            <th ng-repeat="(key, value) in requestFilesResult">{{key}}</th>
+        </tr>
+        <tr>
+            <td ng-repeat="(key, value) in requestFilesResult">{{value}}</td>
+        </tr>
+    </table>
+    <hr />
+    <div class="well">
+        <h4>Directories</h4>
+        <ul ng-repeat="dir in requestDirsResult">
+            <li>{{dir}}</li>
+        </ul>
+    </div>
+</div>
